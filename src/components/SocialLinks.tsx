@@ -1,16 +1,15 @@
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import TelegramIcon from '@mui/icons-material/Telegram';
-
-import { profile } from '../data/profile';
-import XIcon from './icons/XIcon';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import Tooltip from "@mui/material/Tooltip";
+import XIcon from "./icons/XIcon";
+import { profile } from "../data/profile";
 
 const socialItems = [
   { label: 'GitHub', url: profile.socials.github, Icon: GitHubIcon },
   { label: 'X (Twitter) — @0z44d', url: profile.socials.x, Icon: XIcon },
-  { label: 'Telegram — @zaid.ballour', url: profile.socials.telegram, Icon: TelegramIcon },
+  { label: 'Telegram — @zaidballour', url: profile.socials.telegram, Icon: TelegramIcon },
 ];
 
 interface SocialLinksProps {
