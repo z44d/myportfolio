@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Résumé of Zaid Ballour — backend-focused software engineer building high-performance APIs, CLI tooling, Python libraries, and local database systems."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0f16'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='32' font-weight='700' fill='%2364ffda' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Résumé · Zaid Ballour — Backend Software Engineer</title>
+    <style>
+      :root {
+        --bg: #0a0f16;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(148, 163, 184, 0.16);
+        --text: #e6edf3;
+        --muted: #94a3b8;
+        --accent: #64ffda;
+        --violet: #a78bfa;
+        --amber: #fbbf24;
+        --pink: #f472b6;
+        --sky: #38bdf8;
+        --green: #34d399;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(900px 500px at 85% -10%, rgba(167, 139, 250, 0.09), transparent 65%),
+          radial-gradient(900px 500px at 0% 0%, rgba(100, 255, 218, 0.1), transparent 65%),
+          var(--bg);
+        color: var(--text);
+        font-family: 'Alexandria', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .toolbar {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 10;
+        display: flex;
+        gap: 8px;
+      }
+
+      .toolbar a,
+      .toolbar button {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(14, 21, 32, 0.85);
+        backdrop-filter: blur(10px);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .toolbar a:hover,
+      .toolbar button:hover {
+        border-color: rgba(100, 255, 218, 0.55);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .page {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+      }
+
+      header.masthead {
+        text-align: center;
+        padding: 36px 28px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      h1 span {
+        color: var(--accent);
+      }
+
+      .role {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 18px;
+        margin-top: 18px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .contact a {
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: color 0.2s ease;
+      }
+
+      .contact a:hover {
+        color: var(--accent);
+      }
+
+      section {
+        margin-top: 34px;
+      }
+
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 14px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h2::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .summary {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 12px;
+      }
+
+      .skill-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        padding: 14px 16px;
+      }
+
+      .skill-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 6px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .skill-card h3::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--dot, var(--accent));
+        box-shadow: 0 0 8px var(--dot, var(--accent));
+      }
+
+      .skill-card p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .entry {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+        break-inside: avoid;
+      }
+
+      .entry-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4px 16px;
+      }
+
+      .entry h3 {
+        margin: 0;
+        font-size: 1.02rem;
+        font-weight: 600;
+      }
+
+      .entry .meta {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .entry ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .entry ul li + li {
+        margin-top: 4px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .tags span {
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 10px;
+      }
+
+      footer.page-foot {
+        margin-top: 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      footer.page-foot a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          padding: 28px 14px 48px;
+        }
+
+        header.masthead {
+          padding: 26px 16px;
+        }
+
+        .toolbar {
+          top: auto;
+          bottom: 16px;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 14mm;
+        }
+
+        body {
+          background: #fff;
+          color: #111827;
+        }
+
+        .toolbar {
+          display: none;
+        }
+
+        .page {
+          max-width: none;
+          padding: 0;
+        }
+
+        header.masthead,
+        .skill-card,
+        .entry {
+          background: #fff;
+          border-color: #d1d5db;
+          backdrop-filter: none;
+        }
+
+        h1 span,
+        h2,
+        footer.page-foot a {
+          color: #0f766e;
+        }
+
+        h2::after {
+          background: #d1d5db;
+        }
+
+        .skill-card h3::before {
+          background: #0f766e;
+          box-shadow: none;
+        }
+
+        .role,
+        .contact a,
+        .summary,
+        .skill-card p,
+        .entry .meta,
+        .entry ul,
+        .tags span,
+        .contact,
+        footer.page-foot {
+          color: #374151;
+        }
+
+        .contact a,
+        footer.page-foot a {
+          text-decoration: none;
+        }
+
+        section {
+          margin-top: 22px;
+        }
+
+        .entry {
+          margin-bottom: 10px;
+          padding: 12px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <a href="/">← Portfolio</a>
+      <button type="button" onclick="window.print()">⭳ Save as PDF</button>
+    </div>
+
+    <div class="page">
+      <header class="masthead">
+        <h1>Zaid Ballour<span>.</span></h1>
+        <p class="role">Backend Software Engineer</p>
+        <div class="contact">
+          <a href="mailto:zaid@z44d.com">zaid@z44d.com</a>
+          <a href="https://github.com/z44d" target="_blank" rel="noopener noreferrer">github.com/z44d</a>
+          <a href="https://www.linkedin.com/in/z44d/" target="_blank" rel="noopener noreferrer">linkedin.com/in/z44d</a>
+          <a href="https://x.com/0z44d" target="_blank" rel="noopener noreferrer">x.com/0z44d</a>
+          <a href="https://t.me/zaid.ballour" target="_blank" rel="noopener noreferrer">t.me/zaid.ballour</a>
+        </div>
+      </header>
+
+      <section aria-labelledby="summary-title">
+        <h2 id="summary-title">Professional Summary</h2>
+        <p class="summary">
+          Backend-focused software engineer with deep hands-on experience building high-performance
+          APIs, SQL-backed services, caching layers, internal tooling, and distributed systems using
+          Node.js, TypeScript, PostgreSQL, Redis, and containerized infrastructure. Strong in system
+          design, backend reliability, clean code, and translating complex product requirements into
+          scalable services for data-intensive applications.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-title">
+        <h2 id="skills-title">Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card" style="--dot: #64ffda">
+            <h3>Languages</h3>
+            <p>TypeScript, JavaScript, Python, SQL</p>
+          </div>
+          <div class="skill-card" style="--dot: #a78bfa">
+            <h3>Backend</h3>
+            <p>Node.js, Bun, Hono, Express, REST APIs, System Design</p>
+          </div>
+          <div class="skill-card" style="--dot: #fbbf24">
+            <h3>Data</h3>
+            <p>PostgreSQL, Redis, SQLite, MongoDB, ClickHouse, DynamoDB</p>
+          </div>
+          <div class="skill-card" style="--dot: #f472b6">
+            <h3>Infrastructure</h3>
+            <p>Docker, Nginx, OpenResty, Cloudflare, AWS</p>
+          </div>
+          <div class="skill-card" style="--dot: #38bdf8">
+            <h3>Frontend</h3>
+            <p>React, Next.js, Vite</p>
+          </div>
+          <div class="skill-card" style="--dot: #34d399">
+            <h3>Engineering</h3>
+            <p>Distributed Systems, Reliability, Automation, Clean Code</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="experience-title">
+        <h2 id="experience-title">Engineering Experience</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Independent Senior Backend Engineer</h3>
+            <span class="meta">Self-directed systems &amp; product projects</span>
+          </div>
+          <ul>
+            <li>
+              Design and build backend systems, APIs, internal tooling, and data-driven applications
+              with a focus on reliability, scalability, and maintainable architecture.
+            </li>
+            <li>
+              Work across backend logic, data modeling, service boundaries, deployment flow, and
+              operational tooling to ship complete end-to-end systems.
+            </li>
+            <li>
+              Continuously evaluate tools, platforms, and architectural approaches to improve
+              performance, simplicity, and maintainability.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Selected Projects</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Domainak</h3>
+            <span class="meta">domainak.z44d.com</span>
+          </div>
+          <ul>
+            <li>
+              GitHub-authenticated subdomain routing platform: backend API, PostgreSQL metadata
+              store, Redis-backed routing layer, and dynamic proxying through OpenResty.
+            </li>
+            <li>
+              Implemented registration, authenticated workflows, moderation controls, bans, traffic
+              counters, and internal admin operations.
+            </li>
+            <li>
+              Improved reliability through indexing, pagination, health checks, service coordination,
+              and a production Docker + Cloudflare Tunnel deployment.
+            </li>
+          </ul>
+          <div class="tags">
+            <span>TypeScript</span><span>React</span><span>Hono</span><span>Bun</span
+            ><span>PostgreSQL</span><span>Redis</span><span>OpenResty</span><span>Docker</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Serbase</h3>
+            <span class="meta">Desktop app · Tauri v2</span>
+          </div>
+          <ul>
+            <li>
+              Cross-platform desktop app for running local Redis, MongoDB, and PostgreSQL servers
+              from a single UI — no Docker required.
+            </li>
+            <li>
+              In-process RESP and MongoDB wire-protocol engines built in Rust with real-time status
+              via Tauri events.
+            </li>
+          </ul>
+          <div class="tags"><span>Tauri v2</span><span>Rust</span><span>Tokio</span><span>React</span><span>TypeScript</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Tgram</h3>
+            <span class="meta">pypi.org/project/tgram</span>
+          </div>
+          <ul>
+            <li>
+              Developer-friendly Telegram Bot API library for Python: smart auto-loadable plugins,
+              composable filters, and bound methods across update types.
+            </li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Asyncio</span><span>Telegram Bot API</span><span>PyPI</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>toolsx</h3>
+            <span class="meta">pypi.org/project/tools_extra</span>
+          </div>
+          <ul>
+            <li>
+              Lightweight CLI toolbox: YouTube Music downloads as tagged MP3s, Telegram file uploads,
+              subtitle extraction, and a Netis router administration TUI.
+            </li>
+          </ul>
+          <div class="tags"><span>Python</span><span>CLI</span><span>yt-dlp</span><span>PyPI</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>trengine</h3>
+            <span class="meta">pypi.org/project/trengine</span>
+          </div>
+          <ul>
+            <li>
+              Multi-engine translation library (5 engines + OCR) exposed through a single unified API
+              with full sync and async support.
+            </li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Sync &amp; Async</span><span>OCR</span><span>Translation</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>short-url</h3>
+            <span class="meta">URL shortener</span>
+          </div>
+          <ul>
+            <li>
+              Minimal, high-performance URL shortener on Bun + Hono with SQLite via Drizzle ORM,
+              optional link expiry, a REST API, and a prebuilt Docker image.
+            </li>
+          </ul>
+          <div class="tags"><span>Bun</span><span>Hono</span><span>SQLite</span><span>Drizzle ORM</span><span>Docker</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Self-taught Software Engineer</h3>
+          </div>
+          <ul>
+            <li>
+              Independent study focused on backend engineering, APIs, databases, distributed systems,
+              and software architecture.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="page-foot">
+        <p>zaid@z44d.com · github.com/z44d · x.com/0z44d · t.me/zaid.ballour</p>
+        <p><a href="/">← Back to portfolio</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# The GITHUB_TOKEN needs write access to force-push the pages branch.
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # Reads your Pages settings: "/" for a custom domain or <user>.github.io,
+      # "/<repo>/" for project pages. Non-fatal — falls back to /<repo>/ below
+      # so the very first run works before Pages is configured.
+      - name: Detect Pages config
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+
+      - name: Resolve base path
+        id: base
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          DETECTED="${{ steps.pages.outputs.base_path }}"
+          if [ -n "$DETECTED" ] && [ "$DETECTED" != "null" ]; then
+            BASE="$DETECTED"
+          else
+            BASE="/$REPO_NAME/"
+          fi
+          echo "Base path: $BASE"
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Build
+        run: bun run build
+        env:
+          VITE_BASE_PATH: ${{ steps.base.outputs.base }}
+
+      # Fresh, history-less branch containing only the build output at its root.
+      # .nojekyll stops GitHub Pages from running Jekyll over the assets.
+      - name: Prepare pages branch
+        run: |
+          touch dist/.nojekyll
+          cd dist
+          git init -b pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy $(echo "$GITHUB_SHA" | cut -c1-7)"
+
+      - name: Force-push to pages branch
+        run: |
+          cd dist
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -f origin pages
