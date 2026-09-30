@@ -19,7 +19,7 @@ export const profile: Profile = {
   socials: {
     github: 'https://github.com/z44d',
     x: 'https://x.com/0z44d',
-    telegram: 'https://t.me/zaid.ballour',
+    telegram: 'https://t.me/zaidballour',
     linkedin: 'https://www.linkedin.com/in/z44d/',
   },
 };
