@@ -71,5 +71,5 @@ jobs:
       - name: Force-push to pages branch
         run: |
           cd dist
-          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git remote add origin "https://x-access-token:${{ secrets.GHT }}@github.com/${{ github.repository }}.git"
           git push -f origin pages
