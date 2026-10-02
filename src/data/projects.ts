@@ -1,4 +1,4 @@
-import type { Project } from '../types';
+import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
@@ -65,6 +65,10 @@ export const projects: Project[] = [
     description:
       'A minimal URL shortener built with Bun, Hono, and SQLite via Drizzle ORM. Optional link expiry, a clean web UI, a REST API, HTTP 302 redirects, and a prebuilt Docker image for one-command self-hosting.',
     tags: ['Bun', 'Hono', 'SQLite', 'Drizzle ORM', 'Docker'],
-    links: [{ kind: 'github', url: 'https://github.com/z44d/short-url' }],
+    links: [
+      { kind: 'github', url: 'https://github.com/z44d/short-url' },
+      { kind: 'demo', url: 'https://shortly.qzz.io', label: 'Demo 1' },
+      { kind: 'demo', url: 'https://syr.qzz.io', label: 'Demo 2' },
+    ],
   },
 ];

@@ -12,6 +12,8 @@ Package manager is **bun** (`bun.lock` — do not use npm/yarn).
 
 There are no tests and no linter. Run `bun run typecheck` before declaring work done.
 
+**Never run automated browser checks in this project** (headless Chrome, Playwright, Lighthouse, screenshots, PDF renders, etc.). Finish the work, run `bun run typecheck`, then ask the user to verify manually themselves.
+
 ## Deployment
 
 - CI: `.github/workflows/deploy.yml`, triggered by push to `master` (the default branch is `master`, not `main`).

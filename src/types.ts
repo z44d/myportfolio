@@ -3,6 +3,8 @@ export type ProjectLinkKind = 'github' | 'pypi' | 'demo';
 export interface ProjectLink {
   kind: ProjectLinkKind;
   url: string;
+  /** Overrides the default button label (e.g. to show a specific demo domain). */
+  label?: string;
 }
 
 export interface Project {

@@ -123,7 +123,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           const Icon = meta.icon;
           return (
             <Button
-              key={link.kind}
+              key={link.url}
               component="a"
               href={link.url}
               target="_blank"
@@ -139,7 +139,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   : { bgcolor: 'rgba(100, 255, 218, 0.1)', color: 'primary.main' }
               }
             >
-              {meta.label}
+              {link.label ?? meta.label}
             </Button>
           );
         })}

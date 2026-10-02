@@ -97,6 +97,11 @@ export default function Navbar() {
         anchor="top"
         open={open}
         onClose={() => setOpen(false)}
+        /* Keep the drawer mounted (hidden) from first paint: without it, the
+           first tap on mobile has to build the portal, generate all of its
+           Emotion styles, lay it out, and only then animate — which reads as
+           a lag before the tabs appear. */
+        ModalProps={{ keepMounted: true }}
         PaperProps={{
           sx: {
             bgcolor: 'background.paper',
