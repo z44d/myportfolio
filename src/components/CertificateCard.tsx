@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { alpha } from '@mui/material/styles';
@@ -101,6 +102,23 @@ export default function CertificateCard({ certificate }: CertificateCardProps) {
         <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 500, mt: 0.5 }}>
           {certificate.provider} · {certificate.issued}
         </Typography>
+        <Chip
+          label={certificate.kind === 'project' ? 'Project' : 'Course'}
+          size="small"
+          variant="outlined"
+          sx={{
+            mt: 1.5,
+            alignSelf: 'flex-start',
+            height: 22,
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            color: certificate.kind === 'project' ? '#fbbf24' : 'text.secondary',
+            borderColor:
+              certificate.kind === 'project' ? alpha('#fbbf24', 0.35) : 'divider',
+            bgcolor:
+              certificate.kind === 'project' ? alpha('#fbbf24', 0.06) : 'transparent',
+          }}
+        />
       </CardContent>
 
       <CardActions sx={{ px: 3, pb: 3, pt: 0 }}>

@@ -46,11 +46,11 @@ export default function Certificates() {
         <SectionHeading
           overline="Verified Learning"
           title="Certificates"
-          description="Formal certifications backing my fundamentals in TypeScript, JavaScript, SQL, Linux, the HTTP stack, and cybersecurity."
+          description="Formal certifications backing my fundamentals in TypeScript, JavaScript, Python, SQL, Linux, the HTTP stack, and cybersecurity — including hands-on project builds."
         />
         <Grid container spacing={3} alignItems="stretch">
           {certificates.map((certificate) => (
-            <Grid key={certificate.id} item xs={12} sm={6} md={4} sx={{ display: 'flex' }}>
+            <Grid key={certificate.id} item xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
               <CertificateCard certificate={certificate} />
             </Grid>
           ))}
