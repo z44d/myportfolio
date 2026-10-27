@@ -22,6 +22,19 @@ export interface SkillGroup {
   skills: string[];
 }
 
+export interface Certificate {
+  /** Certificate ID — used to build the default boot.dev verification/image URLs. */
+  id: string;
+  title: string;
+  provider: string;
+  /** Issue date shown on the card, e.g. "Oct 23, 2025". */
+  issued: string;
+  /** Overrides the boot.dev verification URL (e.g. Coursera). */
+  url?: string;
+  /** Overrides the derived boot.dev image; `null` renders a placeholder tile instead. */
+  image?: string | null;
+}
+
 export interface Stat {
   value: string;
   label: string;

@@ -46,7 +46,7 @@ export default function Projects() {
         <SectionHeading
           overline="Selected Work"
           title="Projects"
-          description="Open-source tools and platforms I have designed, built, and shipped — from subdomain routing and Telegram bot frameworks to CLI toolkits and local database servers."
+          description="Open-source tools and platforms I have designed, built, and shipped — from an offline-first cross-platform music player and a subdomain routing platform to Telegram bot frameworks, CLI toolkits, and local database servers."
         />
         <Grid container spacing={3} alignItems="stretch">
           {projects.map((project) => (

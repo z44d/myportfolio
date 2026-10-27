@@ -2,6 +2,18 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
+    id: 'carmen',
+    title: 'Carmen',
+    tagline: 'Offline-first cross-platform music player',
+    description:
+      'Offline-first YouTube Music player shipping as a Tauri v2 desktop app (macOS, Windows, Linux), a home-screen web app, and a native SwiftUI iOS app with Lock Screen and Dynamic Island synced lyrics. A FastAPI backend proxies audio through a self-healing three-tier streaming ladder — disk, Telegram cache, live relay — so upstream stream URLs never leave the server. One-tap downloads bundle audio, high-res artwork, and lyrics for full offline playback, alongside Spotify playlist import and a GitHub Actions pipeline that releases desktop, Android, and iOS builds on every tag.',
+    tags: ['Tauri v2', 'React', 'TypeScript', 'FastAPI', 'Rust', 'Swift', 'Redis', 'SQLite'],
+    links: [
+      { kind: 'github', url: 'https://github.com/z44d/carmen' },
+      { kind: 'demo', url: 'https://carmen.z44d.com/#/intro' },
+    ],
+  },
+  {
     id: 'domainak',
     title: 'Domainak',
     tagline: 'Self-hosted custom subdomain router',

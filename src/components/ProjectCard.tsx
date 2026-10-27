@@ -15,12 +15,14 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import StorageIcon from '@mui/icons-material/Storage';
 import DnsIcon from '@mui/icons-material/Dns';
 import LinkIcon from '@mui/icons-material/Link';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import { alpha } from '@mui/material/styles';
 import type { SvgIconProps } from '@mui/material/SvgIcon';
 
 import type { Project, ProjectLinkKind } from '../types';
 
 const projectIcons: Record<string, React.ComponentType<SvgIconProps>> = {
+  carmen: MusicNoteIcon,
   domainak: DnsIcon,
   tgram: TelegramIcon,
   toolsx: TerminalIcon,

@@ -20,7 +20,7 @@ const highlights = [
 ];
 
 const stats: Stat[] = [
-  { value: '6', label: 'Open-source projects' },
+  { value: '7', label: 'Open-source projects' },
   { value: '3', label: 'Packages on PyPI' },
   { value: '3', label: 'DB engines in one app' },
 ];

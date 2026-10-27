@@ -16,8 +16,9 @@ const lines: TerminalLine[] = [
   { text: 'node · bun · hono' },
   { text: 'postgres · redis · sqlite' },
   { prompt: true, text: 'ls projects/' },
-  { text: 'domainak/  tgram/  toolsx/' },
-  { text: 'trengine/  serbase/  short-url/' },
+  { text: 'carmen/  domainak/  tgram/' },
+  { text: 'toolsx/  trengine/  serbase/' },
+  { text: 'short-url/' },
   { prompt: true, text: 'status' },
   { text: 'all systems operational', color: 'success.main' },
 ];

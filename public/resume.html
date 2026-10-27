@@ -237,6 +237,33 @@
         color: var(--muted);
       }
 
+      /* Certificates reuse the skill-card grid; each card carries an explicit
+         verification link styled like the project links in .entry .meta. */
+      .cert-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cert-card a {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 8px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .cert-card a:hover {
+        color: var(--accent);
+      }
+
+      .cert-card a .ico {
+        width: 0.95em;
+        height: 0.95em;
+      }
+
       .entry {
         border: 1px solid var(--border);
         border-radius: 12px;
@@ -424,13 +451,15 @@
         .entry ul,
         .tags span,
         .contact,
+        .cert-card a,
         footer.page-foot {
           color: #374151;
         }
 
         .contact a,
         footer.page-foot a,
-        .entry .meta a {
+        .entry .meta a,
+        .cert-card a {
           text-decoration: none;
         }
 
@@ -639,6 +668,38 @@
         <h2 id="projects-title">Selected Projects</h2>
         <div class="entry">
           <div class="entry-head">
+            <h3>Carmen</h3>
+            <span class="meta"
+              ><a href="https://carmen.z44d.com/#/intro" target="_blank" rel="noopener noreferrer"
+                ><svg class="ico" aria-hidden="true"><use href="#i-globe" /></svg>carmen.z44d.com</a
+              ></span
+            >
+          </div>
+          <ul>
+            <li>
+              Offline-first, cross-platform YouTube Music player shipping as a Tauri v2 desktop
+              app (macOS, Windows, Linux), a home-screen web app, and a native SwiftUI iOS app
+              with Lock Screen / Dynamic Island synced lyrics.
+            </li>
+            <li>
+              FastAPI backend proxies audio through a self-healing three-tier streaming ladder
+              (disk → Telegram cache → live relay) so upstream stream URLs never leave the
+              server; one-tap downloads bundle audio, artwork, and lyrics for full offline
+              playback.
+            </li>
+            <li>
+              Spotify playlist import with confidence-scored title/artist matching; a GitHub
+              Actions pipeline releases desktop, Android (APK/AAB), and iOS builds on every tag.
+            </li>
+          </ul>
+          <div class="tags">
+            <span>Tauri v2</span><span>React</span><span>TypeScript</span><span>FastAPI</span
+            ><span>Rust</span><span>Swift</span><span>Redis</span><span>SQLite</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
             <h3>Domainak</h3>
             <span class="meta"
               ><a href="https://domainak.z44d.com" target="_blank" rel="noopener noreferrer"
@@ -779,6 +840,89 @@
               and software architecture.
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="certificates-title">
+        <h2 id="certificates-title">Certificates</h2>
+        <div class="skills-grid">
+          <div class="skill-card cert-card">
+            <h3>Foundations of Cybersecurity</h3>
+            <p>Google (Coursera) · Oct 2025</p>
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/N7ND3EQYSW8D"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              Coursera</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn HTTP Servers in TypeScript</h3>
+            <p>boot.dev · Oct 23, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/fbf1dec0-8495-418c-9f16-32e27dea1b7d"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn SQL</h3>
+            <p>boot.dev · Oct 15, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/98beeff7-7852-491b-8afb-070569c29fd2"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn Linux</h3>
+            <p>boot.dev · Oct 12, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/0ef611c1-3ff4-4dde-8e06-1938dfa61f91"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn HTTP Clients in TypeScript</h3>
+            <p>boot.dev · Oct 11, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/d56644c2-939c-4bda-8970-118465e8dccf"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn TypeScript</h3>
+            <p>boot.dev · Oct 8, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/0435683f-a4c7-4b20-8e0d-66c2f4cb59ec"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
+          <div class="skill-card cert-card">
+            <h3>Learn JavaScript</h3>
+            <p>boot.dev · Oct 2, 2025</p>
+            <a
+              href="https://www.boot.dev/certificates/d84e5f57-b1c1-483e-b315-d667f09e98ed"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="ico" aria-hidden="true"><use href="#i-launch" /></svg>Verify on
+              boot.dev</a
+            >
+          </div>
         </div>
       </section>
 
